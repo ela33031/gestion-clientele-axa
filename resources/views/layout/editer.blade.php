@@ -4,68 +4,27 @@
 
 <section class="content "> 
   
-      <form action="/dataInsert2" method="post" enctype="multipart/form-data">
+      <form action="/update/{{$vehicules->id}}" method="post" enctype="multipart/form-data">
       @csrf
 
                    <div class="col-md-12" style="margin-top:0.5cm">
                    <div class="card card-primary col-md-12" >
                 <div class="card-header">
-                  <h3 class="card-title">Véhicule</h3>
+                  <h3 class="card-title">edit Véhicule</h3>
                 </div>
                 
-                <div class="card-body form-horizontal">
-                <div class="col-md-6">
-                  
-                  <div class="form-group">
-                    <input type="hidden" value="{{$id}}"
-                      id="exampleInputTypemine" name="id_souscripteur" >
-
-                  </div>
-                </div>
-
-                  <div class="row">
-                  <div class="col-md-6">
-
-                    <div class="form-group">
-                      <label>Usage</label>
-                      <select class="form-control" name="usage">
-                        <option>Usage tourisme</option>
-                        <option>Transport de marchandise</option>
-                        <option>Transport de votre personnel</option>
-                        <option>Cyclomoteurs</option>
-                        <option>Divers</option>
-                      </select>
-
-                    </div>
-                  </div>
-
-
-
-                  <div class="col-md-6">
-                    
-                    <div class="form-group">
-                      <label>Combution</label>
-                      <select class="form-control" name="combution">
-                        <option>Diesel</option>
-                        <option>Essence</option>
-                        
-                      </select>
-
-                    </div>
-                  </div>
-</div>
-
                        
             <div class="row"> 
             <div class="col-md-6">
                    
                     <div class="form-group">
-                      <label>Marque</label>
+                      <label> choisez la nouvelle Marque de vehicule</label>
                       <select class="form-control" name="id_marque" id="marque">
                         <option value="">marque</option>
-                        @foreach ($marques as $marque)
-                            <option value="{{$marque->id_marque}}">
-                                {{$marque->marque}}
+                       
+                        @foreach ($marques as $marques)
+                            <option value="{{$marques->id_marque}}">
+                                {{$marques->marque}}
                             </option>
                             @endforeach
                         
@@ -76,10 +35,10 @@
                   <div class="col-md-6">
                    
                     <div class="form-group">
-                      <label>Module</label>
+                      <label>le module s'adapter avec la marque choisez </label>
                       <select class="form-control" name="id_module" id="module">
                       <option value="">module</option>
-                        
+                     
                     
                         
                       </select>
@@ -93,7 +52,7 @@
                     <div class="form-group">
                       <label>Type mine</label>
                       <input type="text" data-toggle="validator"  class="form-control"
-                        id="exampleInputTypemine" placeholder="Typemine" name="type_mine" required>
+                        id="exampleInputTypemine" placeholder="Typemine" name="type_mine" value="{{$vehicules->type_mine}}" required>
 
                     </div>
                   </div>
@@ -103,7 +62,7 @@
                     <div class="form-group">
                       <label>Poids en charge</label>
                       <input type="text" data-toggle="validator"  class="form-control"
-                        id="exampleInputpidsencharge" name="poids_en_charge" placeholder="poids en charge" required>
+                        id="exampleInputpidsencharge" name="poids_en_charge" placeholder="poids en charge" value="{{$vehicules->poids_en_charge}}" required>
 
                     </div>
                   </div>
@@ -114,7 +73,7 @@
                     <div class="form-group">
                       <label>Puissance fiscale</label>
                       <input type="number" data-toggle="validator"  class="form-control"
-                        id="exampleInputpuissancefiscale" name="puissance_fiscale" placeholder="puissance fiscale" required>
+                        id="exampleInputpuissancefiscale" name="puissance_fiscale" placeholder="puissance fiscale"value="{{$vehicules->puissance_fiscale}}" required>
 
                     </div>
                   </div>
@@ -124,7 +83,7 @@
                     <div class="form-group">
                       <label>immatriculation</label>
                       <input type="text" data-toggle="validator"  class="form-control"
-                        id="exampleInputpuissancefiscale" name="immatriculation" placeholder="puissance fiscale" required>
+                        id="exampleInputpuissancefiscale" name="immatriculation" placeholder="immatriculation" value="{{$vehicules->immatriculation}}" required>
 
                     </div>
                   </div>
@@ -135,7 +94,7 @@
                     <div class="form-group">
                       <label>nombre de place</label>
                       <input type="number" data-toggle="validator"  class="form-control"
-                        id="exampleInputpuissancefiscale" name="nombre_de_place" placeholder="puissance fiscale" required>
+                        id="exampleInputpuissancefiscale" name="nombre_de_place" placeholder="nombre_de_place" value="{{$vehicules->nombre_de_place}}" required>
 
                     </div>
                   </div>
@@ -144,28 +103,59 @@
                     <div class="form-group">
                       <label>mise_en_circulation</label>
                       <input type="date" data-toggle="validator"  class="form-control"
-                        id="exampleInputpuissancefiscale" name="mise_en_circulation" placeholder="puissance fiscale" required>
+                        id="exampleInputpuissancefiscale" name="mise_en_circulation" placeholder="mise_en_circulation" value="{{$vehicules->mise_en_circulation}}"required>
 
                     </div>
                   </div>
                   </div>
-                   <div>
+                  
+
+
+                  <div class="row"> 
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>cylindre</label>
                       <input type="number" data-toggle="validator"  class="form-control"
-                        id="exampleInputpuissancefiscale" name="cylindre" placeholder="puissance fiscale" required>
+                        id="exampleInputpuissancefiscale" name="cylindre" placeholder="cylindre" value="{{$vehicules->cylindre}}" required>
+
+                   
+                  </div></div>
+                  <div class="col-md-6">
+                    
+                    <div class="form-group">
+                      <label>Combution</label>
+                      <select class="form-control" name="combution">
+                      <option>{{$vehicules->combution}}</option>
+                        <option>Diesel</option>
+                        <option>Essence</option>
+                        
+                      </select>
 
                     </div>
-                  </div></div>
+                  </div>
 
+                  </div>
+
+
+              <div class="col-md-6">
+                  
+                  <div class="form-group">
+                  
+                    <input type="hidden" data-toggle="validator"  class="form-control"
+                      id="exampleInputTypemine" placeholder="Typemine" name="id_souscripteur" value="{{$vehicules->id_souscripteur}}" required>
+
+                  </div>
+                </div>
+             
+
+               
                 </div></div>
                
 
 
                 
                 <div class="card-footer " style="margin-left:2cm">
-                    <button type="submit" class="btn btn-primary " >Ajouter</button>
+                    <button type="submit" class="btn btn-primary " >edit</button>
                  </div>
         </form>
          </section>

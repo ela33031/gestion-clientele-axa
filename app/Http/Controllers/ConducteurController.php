@@ -17,7 +17,7 @@ class ConducteurController extends Controller
     public function DataInsert(Request $request)
     {
        
-        $lien = $request->input('lien');
+        
         $cin = $request->input('cin');
         $nom = $request->input('nom');
         $prenom = $request->input('prenom');
@@ -30,7 +30,7 @@ class ConducteurController extends Controller
        
 
 
-        $isInsertSuccress = Conducteur::insert([  'lien_avec_souscripteur'=>$lien , 'cin'=>$cin ,'nom'=>$nom ,'prenom'=>$prenom,
+        $isInsertSuccress = Conducteur::insert([   'cin'=>$cin ,'nom'=>$nom ,'prenom'=>$prenom,
         'sexe'=>$sexe,'etat_civil'=>$etat,'date_de_naissance'=>$naissance,'date_de_permis'=>$datepremis,'num_permis'=>$numpermis,'categorie_permis'=>$categorie]);
         if($isInsertSuccress) return view('layout/conducteur');
         else  return view('layout/erreur');

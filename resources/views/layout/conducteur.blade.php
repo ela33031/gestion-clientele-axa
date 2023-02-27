@@ -17,19 +17,6 @@
               <div class="card-body form-horizontal">
                
                  
-                    <div class="col-md-9">
-                      
-                      <div class="form-group">
-                        <label>LIEN AVEC SOUSCRIPTEUR</label>
-                        <select class="form-control" name="lien" id="">
-                          <option>LUI-MEME</option>
-                          <option>AUTRE</option>
-                        
-                        </select>
-                     
-                      </div>
-                    </div>
-                    
                    
             
                     <div class="col-sm-9">

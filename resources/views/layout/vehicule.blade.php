@@ -23,21 +23,7 @@
                   </div>
                 </div>
 
-                  <div class="row">
-                  <div class="col-md-6">
-
-                    <div class="form-group">
-                      <label>Usage</label>
-                      <select class="form-control" name="usage">
-                        <option>Usage tourisme</option>
-                        <option>Transport de marchandise</option>
-                        <option>Transport de votre personnel</option>
-                        <option>Cyclomoteurs</option>
-                        <option>Divers</option>
-                      </select>
-
-                    </div>
-                  </div>
+                 
 
 
 

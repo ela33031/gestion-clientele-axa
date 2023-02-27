@@ -22,23 +22,24 @@
                   <thead class="thead-light">
                         
                       <tr>
-                        <th>cin</th> 
-                        <th>nom</th>
-                        <th>ajouter</th>
-                       
+                      <th>cin</th> 
+                     
+                    <th>immatriculation</th>
+                    <th>editer</th>
 
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $data ) <a href="souscripteur/{{$data->id_souscripteur}}/vehicule">
-                      <tr> 
-                        <td>{{$data->cin}}</td>
-                        <td>{{$data->nom}}</td> 
+                        @foreach ($vehicules as $vehicules ) 
+                      <tr>
+                        
+                         <td>{{$vehicules->cin}}</td>
+                         
+                        <td>{{$vehicules->immatriculation}}</td> 
+                        
                         <td>
-                            <button  class="btn btn-sm btn-primary"
-                                     onclick="window.location='souscripteur/{{$data->id_souscripteur}}/vehicule';">ajouter</button>
+                           <a href= "editer/{{$vehicules->id}}" >edit vehicule</a>
                         </td>
-                       
                         
                         @endforeach
                         

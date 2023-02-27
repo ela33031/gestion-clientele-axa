@@ -33,7 +33,7 @@
           </div>
         </div>
         <li class="nav-item active">
-        <a class="nav-link" href={{'/'}}>
+        <a class="nav-link" href={{'/listervehicule'}}>
           <i class="fas fa-home"></i>
           <span>Editer vehicule</span></a>
       </li>

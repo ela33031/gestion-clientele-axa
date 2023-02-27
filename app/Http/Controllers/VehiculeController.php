@@ -6,10 +6,19 @@ use Illuminate\Http\Request;
 use App\Models\Vehicule;
 use App\Models\Marque;
 use App\Models\Module;
-
+use Illuminate\Support\Facades\DB;
 class vehiculeController extends Controller
 {
    
+    public function index(){
+        $vehicules =DB::table('vehicules')
+        ->join('souscripteurs','vehicules.id','=','souscripteurs.id_souscripteur')
+        ->select('vehicules.*','souscripteurs.*')
+        ->get();
+        return view('layout/listervehicule',compact('vehicules'));
+    }
+
+    
     public function load(){
         $marques = Marque::all();
         $vehicules = Vehicule::with('module','marque')->get();
@@ -19,7 +28,6 @@ class vehiculeController extends Controller
        public function DataInsert(Request $request)
        {
            $vehicules = new Vehicule;
-           $vehicules->usage = $request->usage ;
            $vehicules->combution = $request->combution ;
            $vehicules->cylindre = $request->cylindre;
            $vehicules->mise_en_circulation = $request->mise_en_circulation ;
@@ -41,10 +49,40 @@ class vehiculeController extends Controller
         $modules = Module::where('id_marque',$id_marque)->get();
         return response()->json(['modules'=>$modules]);
     }
-    public function editer(Request $request)
+    public function edit($id)
+    {     
+         $vehicules =Vehicule::find($id);
+         $marques = Marque::all() ;
+         
+       
+        $result=compact('vehicules','marques');
+        return View('layout/editer',$result);
+        
+      
+    }
+
+    public function update(Request $request,$id)
     {
-        $data['marques'] = Marque::get(["marque", "id_marque"]);
-        $data['id'] = $request->id;
-       return view('layout/editer',$data);
+        
+    
+        $vehicules =Vehicule::find($id);
+        $vehicules->combution = $request->combution ;
+        $vehicules->cylindre = $request->cylindre;
+        $vehicules->mise_en_circulation = $request->mise_en_circulation ;
+        $vehicules->nombre_de_place = $request->nombre_de_place;
+        $vehicules->immatriculation = $request->immatriculation ;
+        $vehicules->puissance_fiscale = $request->puissance_fiscale ;
+        $vehicules->poids_en_charge = $request->poids_en_charge ;
+        $vehicules->type_mine = $request->type_mine ;
+        $vehicules->id_module= $request->id_module ;
+        $vehicules->id_marque = $request->id_marque ;
+        $vehicules->id_souscripteur = $request->id_souscripteur ;
+        $vehicules->update();
+
+       
+          echo ('flash_message vehicule Updated');
     }
+
+
     }
+
