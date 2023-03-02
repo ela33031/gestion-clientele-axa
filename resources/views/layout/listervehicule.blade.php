@@ -12,7 +12,7 @@
                   <table class="table align-items-center table-flush" id="myTable">
                   <div class="input-group" >
                         <div class="form-outline" style="margin-left:23cm ">
-                            <input onkeyup="myFunction()" type="search" id="myInput" class="form-control" placeholder="Chercher CIN" />
+                            <input onkeyup="myFunction()" type="search" id="myInput" class="form-control" placeholder="immaterculation" />
                         </div>
                     <button type="button" class="btn btn-primary">
                     <i class="fas fa-search"></i>
@@ -22,9 +22,10 @@
                   <thead class="thead-light">
                         
                       <tr>
-                      <th>cin</th> 
-                     
-                    <th>immatriculation</th>
+                     <th>immatriculation</th> 
+                    <th>id_souscripteur</th>
+                    <th>Type mine</th>
+                    <th>combution</th>
                     <th>editer</th>
 
                       </tr>
@@ -32,19 +33,21 @@
                     <tbody>
                         @foreach ($vehicules as $vehicules ) 
                       <tr>
-                        
-                         <td>{{$vehicules->cin}}</td>
-                         
-                        <td>{{$vehicules->immatriculation}}</td> 
-                        
+                     
+                        <td>{{$vehicules->immatriculation}}</td>   
+                      <td>{{$vehicules->id_souscripteur}}</td>  
+                        <td>{{$vehicules->type_mine}}</td> 
+                        <td>{{$vehicules->combution}}</td> 
                         <td>
-                           <a href= "editer/{{$vehicules->id}}" >edit vehicule</a>
+                           <a href= "editer/{{$vehicules->id}}" class="btn btn-primary">edit vehicule</a>
                         </td>
                         
-                        @endforeach
+                        
+                           
+                        
                         
                     
-                      </tr>
+                      </tr> @endforeach
                     </tbody>
                     </table>
                 </div>

@@ -15,10 +15,16 @@ class vehiculeController extends Controller
         ->join('souscripteurs','vehicules.id','=','souscripteurs.id_souscripteur')
         ->select('vehicules.*','souscripteurs.*')
         ->get();
+
         return view('layout/listervehicule',compact('vehicules'));
     }
 
-    
+    public function show(){
+        $vehicules =DB::table('vehicules')->get();
+
+        return view('layout/listervehicule',compact('vehicules'));
+    } 
+
     public function load(){
         $marques = Marque::all();
         $vehicules = Vehicule::with('module','marque')->get();
@@ -80,7 +86,7 @@ class vehiculeController extends Controller
         $vehicules->update();
 
        
-          echo ('flash_message vehicule Updated');
+        return View('layout/successeditvehicule');
     }
 
 

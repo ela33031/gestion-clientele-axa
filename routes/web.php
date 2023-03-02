@@ -22,6 +22,9 @@ Route::get('/', function () {
     return view('layout.acceuil');
 });
 
+Route::get('/successeditvehicule', function () {
+    return view('layout.successeditvehicule');
+});
 Route::get('/listervehicule', function () {
     return view('layout.listervehicule');
 });
@@ -64,7 +67,8 @@ Route::get('vehicule/{id}/editer', [VehiculeController::class, 'load']);
 
 
 
-Route::get('/listervehicule', [VehiculeController::class, 'index']);
+Route::get('/listervehicule', [VehiculeController::class, 'show']);
+Route::get('editer/{id}', [VehiculeController::class, 'show']);
 Route::get('editer/{id}', [VehiculeController::class, 'edit']);
 
 Route::post('/update/{id}', [VehiculeController::class,'update']);

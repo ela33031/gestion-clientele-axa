@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-
+                            
 <section class="content "> 
   
       <form action="/update/{{$vehicules->id}}" method="post" enctype="multipart/form-data">
@@ -154,12 +154,13 @@
 
 
                 
-                <div class="card-footer " style="margin-left:2cm">
-                    <button type="submit" class="btn btn-primary " >edit</button>
+                <div class="card-footer " style="margin-left:2cm" >
+                    <button type="submit" class="btn btn-primary " >edit</button> 
                  </div>
         </form>
+        
          </section>
-
+         
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
