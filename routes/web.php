@@ -18,9 +18,7 @@ use App\Http\Controllers\AddVehicule;
 |
 */
 
-Route::get('/', function () {
-    return view('layout.acceuil');
-});
+
 
 Route::get('/successeditvehicule', function () {
     return view('layout.successeditvehicule');
@@ -72,3 +70,25 @@ Route::get('editer/{id}', [VehiculeController::class, 'show']);
 Route::get('editer/{id}', [VehiculeController::class, 'edit']);
 
 Route::post('/update/{id}', [VehiculeController::class,'update']);
+
+
+
+Route::get('/login', \Auth0\Laravel\Http\Controller\Stateful\Login::class);
+Route::get('/logout', \Auth0\Laravel\Http\Controller\Stateful\Logout::class);
+Route::get('/auth0/callback', \Auth0\Laravel\Http\Controller\Stateful\Callback::class);
+
+
+Route::get('/', function () {
+     
+        return view('layout.acceuil');
+   
+
+  
+});//->middleware(['auth0.authenticate.optional']);
+
+
+Route::get('/required', function () {
+    return view('layout.acceuil');
+})->middleware(['auth0.authenticate']);
+
+

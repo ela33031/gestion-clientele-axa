@@ -1,7 +1,20 @@
 @extends('master')
 
 @section('content')
-                            
+                         
+
+<head>
+<link href="public/img/logo/ima.png" rel="icon">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
+
+  <link href="https://cdn.datatables.net/v/dt/dt-1.13.3/b-2.3.5/rg-1.3.0/rr-1.3.2/sb-1.4.0/sp-2.1.1/sl-1.6.1/datatables.min.css"/>
+ 
+ 
+</head>
 <section class="content "> 
   
       <form action="/update/{{$vehicules->id}}" method="post" enctype="multipart/form-data">
@@ -10,7 +23,7 @@
                    <div class="col-md-12" style="margin-top:0.5cm">
                    <div class="card card-primary col-md-12" >
                 <div class="card-header">
-                  <h3 class="card-title">edit Véhicule</h3>
+                  <h3 class="card-title">Edit Véhicule</h3>
                 </div>
                 
                        
@@ -160,8 +173,11 @@
         </form>
         
          </section>
-         
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/v/dt/dt-1.13.3/b-2.3.5/rg-1.3.0/rr-1.3.2/sb-1.4.0/sp-2.1.1/sl-1.6.1/datatables.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $('#marque').on('change', function () {
