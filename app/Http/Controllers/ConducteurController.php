@@ -22,7 +22,7 @@ class ConducteurController extends Controller
         $nom = $request->input('nom');
         $prenom = $request->input('prenom');
         $sexe = $request->input('sexe');
-        $etat = $request->input('etat');
+        $etat = $request->input('etat_civil');
         $naissance = $request->input('naissance');
         $datepremis = $request->input('datepremis');
         $numpermis = $request->input('numpermis');

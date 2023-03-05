@@ -154,7 +154,7 @@
                   
                   <div class="form-group">
                   
-                    <input type="hidden" data-toggle="validator"  class="form-control"
+                    <input type="text" data-toggle="validator"  class="form-control"
                       id="exampleInputTypemine" placeholder="Typemine" name="id_souscripteur" value="{{$vehicules->id_souscripteur}}" required>
 
                   </div>

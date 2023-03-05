@@ -6,7 +6,8 @@ use App\Http\Controllers\AddSouscripteurController;
 use App\Http\Controllers\ConducteurController;
 use App\Http\Controllers\VehiculeController;
 use App\Http\Controllers\AddVehicule;
-
+use App\Http\Controllers\Addcontrat;
+use App\Http\Controllers\contratController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +36,12 @@ Route::get('/addvehicule', function () {
     return view('layout.addvehicule');
 });
 
+Route::get('/addcontrat', function () {
+    return view('layout.addcontrat');
+});
+Route::get('/contrat', function () {
+    return view('layout.contrat');
+});
 Route::get('/vehicule', [VehiculeController::class,'load']);
 Route::post('/vehicule', [VehiculeController::class,'DataInsert']);
 
@@ -52,17 +59,18 @@ Route::post('dataInsert', [AddSouscripteurController::class,'DataInsert']);
 Route::get('/conducteur', [ConducteurController::class,'conducteur']);
 Route::post('dataInsert1', [ConducteurController::class,'DataInsert']);
 
-
+Route::get('/contrat', [contratController::class,'contrat']);
+Route::post('dataInsert3', [contratController::class,'DataInsert']);
 
 Route::post('dataInsert2', [VehiculeController::class,'DataInsert']);
 
 
 Route::get('/addvehicule',[AddVehicule::class,'show']);
-
+Route::get('/addcontrat',[Addcontrat::class,'show']);
 // new code
 Route::get('souscripteur/{id}/vehicule', [DropdownController::class, 'index']);
 Route::get('vehicule/{id}/editer', [VehiculeController::class, 'load']);
-
+Route::get('souscripteur/{id}/contrat', [Addcontrat::class, 'index']);
 
 
 Route::get('/listervehicule', [VehiculeController::class, 'show']);
@@ -71,7 +79,11 @@ Route::get('editer/{id}', [VehiculeController::class, 'edit']);
 
 Route::post('/update/{id}', [VehiculeController::class,'update']);
 
+Route::get('/listercontrat', [contratController::class, 'show']);
+Route::get('editercontrat/{id}', [contratController::class, 'show']);
+Route::get('editercontrat/{id}', [contratController::class, 'edit']);
 
+Route::post('/update1/{id}', [contratController::class,'update']);
 
 Route::get('/login', \Auth0\Laravel\Http\Controller\Stateful\Login::class);
 Route::get('/logout', \Auth0\Laravel\Http\Controller\Stateful\Logout::class);

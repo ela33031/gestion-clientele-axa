@@ -31,7 +31,7 @@
             <a class="collapse-item" href={{'/add'}}>Ajoutez Souscripteur</a>
             <a class="collapse-item" href={{'/conducteur'}}>Ajoutez Conducteur</a>
             <a class="collapse-item" href={{'/addvehicule'}}>Ajoutez Vehicule</a>
-
+            <a class="collapse-item" href={{'/addcontrat'}}>Ajoutez contract</a>
             
           </div>
         </div>
@@ -40,7 +40,7 @@
           <i class="fas fa-car" style='font-size:20px'></i>
           <span style='font-size:15px'>Vehicules</span></a>
       </li>
-      <li class="nav-item active">
+      <!-- <li class="nav-item active">
         <a class="nav-link" href={{'#'}}>
           <i class="fas fa-user-alt" style='font-size:20px'></i>
           <span style='font-size:15px'>Souscripteurs</span></a>
@@ -49,6 +49,11 @@
         <a class="nav-link" href={{'#'}}>
           <i class="fas fa-id-card" style='font-size:20px'></i>
           <span style='font-size:15px'>Conducteurs</span></a>
+      </li> -->
+      <li class="nav-item active">
+        <a class="nav-link" href={{'/listercontrat'}}>
+          <i class="far fa-id-card" style='font-size:20px'></i>
+          <span style='font-size:15px'>Contrats</span></a>
       </li>
       </li>
       <hr class="sidebar-divider">

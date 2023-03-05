@@ -71,7 +71,7 @@
                       
                       <div class="form-group">
                         <label>ETAT CIVILE</label>
-                        <select class="form-control" name="etat">
+                        <select class="form-control" name="etat_civil">
                           <option>MARIE</option>
                           <option>CELIBATAIRE</option>
                           
